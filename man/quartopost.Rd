@@ -21,7 +21,7 @@ Nothing. What matters are the side effects:
 desired data to create the file for the blog post.
 }
 \examples{
-\dontshow{if (interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 quartopost()
 \dontshow{\}) # examplesIf}
 }

@@ -33,6 +33,10 @@ quartopost <- function() {
   show_empty_fields <- ifelse(is.null(getOption("quartopost.show_empty_fields")),
                            TRUE, getOption("quartopost.show_empty_fields")
   )
+
+  date_format <- ifelse(is.null(getOption("quartopost.date_format")),
+                    "%Y-%m-%d", getOption("quartopost.date_format")
+  )
   ##############################################################
 
   # call the dialog window
@@ -57,7 +61,6 @@ quartopost <- function() {
   if (verbose) {
     cat(paste0(
       "New folder inside 'posts':",
-#      params$date, "-", title_kebab(params$title), "\n"
       params$file_data$filename, "\n"
     ))
     cat("YAML front matter:\n")

@@ -37,7 +37,7 @@ get_args <- function() {
             shiny::dateInput(
               inputId = "date",
               label = "Date",
-              value = lubridate::today(),
+              value = lubridate::today()
             ),
 
       ),
@@ -124,7 +124,6 @@ get_args <- function() {
 
   ) # end of mini page
 
-
   server <- function(input, output, session) {
 
     # Check status of title and return feedback message
@@ -134,8 +133,9 @@ get_args <- function() {
             shinyFeedback::feedbackWarning("title", show = TRUE, "Enter a title or click the 'Cancel' button")
             shiny::req(!title_empty)
         } else {
+            mydate <- format(input$date,getOption("quartopost.date_format"))
             slug <- paste0(
-                "posts/", input$date, "-",
+                "posts/", mydate, "-",
                 title_kebab(input$title)
             )
             new_post_file <- paste0(slug, "/", "index.qmd")
