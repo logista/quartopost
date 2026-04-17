@@ -72,7 +72,8 @@ prepare_yaml <- function(args, desc,
             glue::glue('subtitle: "{args$subtitle}"')},
           if (args$desc != "") {
             glue::glue("{desc}")},
-          glue::glue('author: "{args$author}"'),
+          if (args$author != "") {
+            glue::glue('author: "{args$author}"')},
           glue::glue('date: "{args$date}"'),
           if (img_name != "") {
             glue::glue('image: "{img_name}"')
